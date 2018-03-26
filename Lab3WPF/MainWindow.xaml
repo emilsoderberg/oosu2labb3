@@ -1,0 +1,98 @@
+﻿<Window x:Class="Lab3WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab3WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+
+        <ListView x:Name="myListViewOfAbilities" ItemsSource="{Binding Abilities}" Grid.Column="0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Id</Label>
+                            <Label Content="{Binding Id}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Name</Label>
+                            <Label Content="{Binding Name}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Cooldown</Label>
+                            <Label Content="{Binding Cooldown}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Damage</Label>
+                            <Label Content="{Binding Damage}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Description</Label>
+                            <Label Content="{Binding Description}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="myListViewOfHeroes" ItemsSource="{Binding Heroes}" Grid.Column="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" >
+                            <Label>Id</Label>
+                            <Label Content="{Binding Id}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>SuperName</Label>
+                            <Label Content="{Binding SuperName}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>RealName</Label>
+                            <Label Content="{Binding RealName}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Age</Label>
+                            <Label Content="{Binding Age}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>City</Label>
+                            <Label Content="{Binding City}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="myListViewOfJobs" ItemsSource="{Binding Jobs}" Grid.Column="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Id</Label>
+                            <Label Content="{Binding Id}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Location</Label>
+                            <Label Content="{Binding Location}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>StartDate</Label>
+                            <Label Content="{Binding StartDate}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>EndDate</Label>
+                            <Label Content="{Binding EndDate}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>
