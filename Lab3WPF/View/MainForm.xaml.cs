@@ -34,9 +34,7 @@ namespace Lab3WPF.View
 
             jobsViewModel.LoadJobs();
 
-            DataContext = abilitiesViewModel;
             DataContext = heroesViewModel;
-            DataContext = jobsViewModel;
         }
     }
 }

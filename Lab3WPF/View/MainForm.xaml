@@ -28,20 +28,36 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
+        
         <!-- HereosListBox-->
         <Label Content="Heroes" Grid.Column="1" Grid.Row="1"/>
-        <ListBox x:Name="myListViewOfHeroes" Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2" Height="220" Margin="0,0,40,0" />
+        <ListBox x:Name="myListViewOfHeroes" Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2" Height="220" Margin="0,0,40,0" ItemsSource="{Binding Heroes}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Name</Label>
+                            <Label Content="{Binding SuperName}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <!-- HeroNames-->
-        <ListView Grid.Column="3" Grid.Row="2" BorderThickness="0" DataContext="{Binding HeroViewModel}">
-            <ListViewItem BorderThickness="0" >
-                <StackPanel>
-                    <Label Content="Hero Name:" HorizontalAlignment="Right"/>
-                    <Label Content="Real Name:" HorizontalAlignment="Right"/>
-                    <Label Content="Age:" HorizontalAlignment="Right"/>
-                    <Label Content="Cit:y" HorizontalAlignment="Right"/>
-                </StackPanel>
-            </ListViewItem>
+        <ListView Grid.Column="3" Grid.Row="2" BorderThickness="0"  ItemsSource="{Binding Abilities}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ListViewItem BorderThickness="0" >
+                        <StackPanel>
+                            <Label Content="Hero Name:" HorizontalAlignment="Right"/>
+                            <Label Content="Real Name:" HorizontalAlignment="Right"/>
+                            <Label Content="Age:" HorizontalAlignment="Right"/>
+                            <Label Content="Cit:y" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
         <!-- HeroesAttributes-->
         <ListBox x:Name="myListViewOfHeroAttributes" Grid.Column="4" Grid.Row="2" Width="100"/>

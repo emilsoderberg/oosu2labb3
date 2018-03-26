@@ -37,7 +37,7 @@ namespace Lab3WPF
 
             jobsViewModel.LoadJobs();
 
-            //DataContext = heroesViewModel;
+            DataContext = heroesViewModel;
 
         }
     }
