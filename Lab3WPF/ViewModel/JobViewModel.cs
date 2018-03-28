@@ -2,19 +2,22 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Lab3WPF.ViewModel
 {
-    class JobViewModel
+    class JobViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Job> Jobs
         {
             get;
             set;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public void LoadJobs()
         {

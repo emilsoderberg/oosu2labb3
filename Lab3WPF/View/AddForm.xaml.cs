@@ -20,7 +20,7 @@ namespace Lab3WPF.View
     {
         public AddForm()
         {
-           //InitializeComponent();
+           InitializeComponent();
 
             AbilityViewModel abilitiesViewModel = new AbilityViewModel();
 
@@ -35,6 +35,13 @@ namespace Lab3WPF.View
             jobsViewModel.LoadJobs();
 
             DataContext = abilitiesViewModel;
+        }
+
+        private void CloseAddForm_Click(object sender, RoutedEventArgs e)
+        {
+            MainForm mf = new MainForm();
+            mf.Show();
+            this.Close();
         }
     }
 }

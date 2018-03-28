@@ -6,92 +6,63 @@
         xmlns:local="clr-namespace:Lab3WPF.View"
         mc:Ignorable="d"
         Title="AddForm" Height="350" Width="525">
-  <Grid>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="auto" />
-      <ColumnDefinition Width="auto" />
-      <ColumnDefinition Width="auto" />
-    </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
 
-    <ListView x:Name="myListViewOfAbilities" ItemsSource="{Binding Abilities}">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <StackPanel Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
-              <Label>Id</Label>
-              <Label Content="{Binding Id}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-              <Label>Name</Label>
-              <Label Content="{Binding Name}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-              <Label>Cooldown</Label>
-              <Label Content="{Binding Cooldown}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-              <Label>Damage</Label>
-              <Label Content="{Binding Damage}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-              <Label>Description</Label>
-              <Label Content="{Binding Description}"/>
-            </StackPanel>
-          </StackPanel>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-    <ListView x:Name="myListViewOfHeroes" ItemsSource="{Binding Heroes}">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <StackPanel Grid.Column="2">
-            <StackPanel Orientation="Horizontal" >
-              <Label>Id</Label>
-              <Label Content="{Binding Id}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-              <Label>SuperName</Label>
-              <Label Content="{Binding SuperName}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-              <Label>RealName</Label>
-              <Label Content="{Binding RealName}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-              <Label>Age</Label>
-              <Label Content="{Binding Age}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-              <Label>City</Label>
-              <Label Content="{Binding City}"/>
-            </StackPanel>
-          </StackPanel>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-    <ListView x:Name="myListViewOfJobs" ItemsSource="{Binding Jobs}">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <StackPanel Grid.Column="3">
-            <StackPanel Orientation="Horizontal">
-              <Label>Id</Label>
-              <Label Content="{Binding Id}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-              <Label>Location</Label>
-              <Label Content="{Binding Location}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-              <Label>StartDate</Label>
-              <Label Content="{Binding StartDate}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-              <Label>EndDate</Label>
-              <Label Content="{Binding EndDate}"/>
-            </StackPanel>
-          </StackPanel>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-  </Grid>
+        <!-- Tilläggslista, labels och textboxes-->
+        <Label Content="Name" Grid.Column="2" Grid.Row="1" Margin="0,0,0,-6"/>
+        <TextBox x:Name="AddHeroName" Grid.Column="2" Grid.Row="2"/>
+        <Label Content="SuperName" Grid.Column="2" Grid.Row="3" Margin="0,0,0,-6"/>
+        <TextBox x:Name="AddName" Grid.Column="2" Grid.Row="4"/>
+        <Label Content="City" Grid.Column="2" Grid.Row="5" Margin="0,0,0,-6"/>
+        <TextBox x:Name="AddCity" Grid.Column="2" Grid.Row="6"/>
+        <Label Content="Age" Grid.Column="2" Grid.Row="7" Margin="0,0,0,-6"/>
+        <TextBox x:Name="AddAge" Grid.Column="2" Grid.Row="8"/>
+
+        <!--Buttons-->
+        <Button x:Name="AddHero" Content="Add" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="9" Margin="0,100,0,0" Width="100" FontSize="14"/>
+        <Button x:Name="CloseAddForm" Content="Close" Grid.Column="4" Grid.Row="9" Margin="10,100,0,0" Width="100" FontSize="14" Click="CloseAddForm_Click"/>
+
+        <!-- Add Abilities-->
+        <ListView Name="AddAbilitiesCheckBoxList" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="4" Grid.Row="2" 
+                  Grid.RowSpan="4" Margin="147,0,-205,0">
+            <ListViewItem>
+                <StackPanel Width="120" Height="80">
+                    <CheckBox x:Name="AddAbilityFireBall" IsChecked="False" Content="FireBall"/>
+                    <CheckBox x:Name="AddAbilityFireBlast" IsChecked="False" Content="FireBlast"/>
+                    <CheckBox x:Name="AddAbilityIceNova" IsChecked="False" Content="Ice Nova"/>
+                    <CheckBox x:Name="AddAbilityIceBolt" IsChecked="False" Content="Ice Bolt"/>
+                </StackPanel>
+            </ListViewItem>
+        </ListView>
+
+    </Grid>
 </Window>

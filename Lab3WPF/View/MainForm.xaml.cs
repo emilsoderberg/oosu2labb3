@@ -20,7 +20,7 @@ namespace Lab3WPF.View
     {
         public MainForm()
         {
-            //InitializeComponent();
+            InitializeComponent();
 
             AbilityViewModel abilitiesViewModel = new AbilityViewModel();
 
@@ -34,7 +34,32 @@ namespace Lab3WPF.View
 
             jobsViewModel.LoadJobs();
 
-            DataContext = heroesViewModel;
+
+            myListViewOfHeroes.DataContext = heroesViewModel;
+            //DataContext = heroesViewModel;
+        }
+
+        private void AddFormButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddForm af = new AddForm();
+            af.Show();
+            this.Close();
+
+        }
+
+        private void EditFormButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("EEEEButton is clicked!");
+        }
+
+        private void RemoveHeroButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("RRRRRButton is clicked!");
+        }
+
+        private void myListViewOfHeroes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //myListViewOfHeroAbilities.DataContext = myListViewOfHeroes.SelectedItem
         }
     }
 }

@@ -31,7 +31,7 @@
         
         <!-- HereosListBox-->
         <Label Content="Heroes" Grid.Column="1" Grid.Row="1"/>
-        <ListBox x:Name="myListViewOfHeroes" Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2" Height="220" Margin="0,0,40,0" ItemsSource="{Binding Heroes}">
+        <ListBox x:Name="myListViewOfHeroes" Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2" Height="220" Margin="0,0,40,0" ItemsSource="{Binding Heroes}" SelectionChanged="myListViewOfHeroes_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -45,7 +45,7 @@
         </ListBox>
 
         <!-- HeroNames-->
-        <ListView Grid.Column="3" Grid.Row="2" BorderThickness="0"  ItemsSource="{Binding Abilities}">
+        <ListView Grid.Column="3" Grid.Row="2" BorderThickness="0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ListViewItem BorderThickness="0" >
@@ -53,7 +53,7 @@
                             <Label Content="Hero Name:" HorizontalAlignment="Right"/>
                             <Label Content="Real Name:" HorizontalAlignment="Right"/>
                             <Label Content="Age:" HorizontalAlignment="Right"/>
-                            <Label Content="Cit:y" HorizontalAlignment="Right"/>
+                            <Label Content="City:" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </ListViewItem>
                 </DataTemplate>
@@ -63,7 +63,17 @@
         <ListBox x:Name="myListViewOfHeroAttributes" Grid.Column="4" Grid.Row="2" Width="100"/>
         <!-- HeroAbilities-->
         <Label Content="Abilities:" Grid.Column="5" Grid.Row="1" Margin="30,0,0,0"/>
-        <ListBox x:Name="myListViewOfHeroAbilities" Grid.Column="5" Grid.Row="2" Width="160" Margin="30,0,0,0"/>
+        <ListBox x:Name="myListViewOfHeroAbilities" Grid.Column="5" Grid.Row="2" Width="160" Margin="30,0,0,0" ItemsSource="{Binding Abilities}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding name}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <!--<ListView x:Name="myListViewOfHeroes" ItemsSource="{Binding Heroes}" DataContext="{Binding HeroViewModel}" Grid.Column="1" Grid.Row="1">
             <ListView.ItemTemplate>
@@ -147,8 +157,8 @@
         </ListView> -->
 
         <!-- Buttons Add, Edit and Delete-->
-        <Button x:Name="AddFormButton" Content="Add Hero" Grid.Column="1" Grid.Row="6" Margin="2,20,2,0" Width="80"/>
-        <Button x:Name="EditFormButton" Content="Edit Hero" Grid.Column="2" Grid.Row="6" Margin="2,20,2,0" Width="80"/>
-        <Button x:Name="RemoveHeroButton" Content="Remove Hero" Grid.Column="3" Grid.Row="6" Margin="2,20,2,0" Width="80"/>
+        <Button x:Name="AddFormButton" Content="Add Hero" Click= "AddFormButton_Click" Grid.Column="1" Grid.Row="6" Margin="2,20,2,0" Width="80"/>
+        <Button x:Name="EditFormButton" Content="Edit Hero" Click = "EditFormButton_Click"  Grid.Column="2" Grid.Row="6" Margin="2,20,2,0" Width="80"/>
+        <Button x:Name="RemoveHeroButton" Content="Remove Hero" Click = "RemoveHeroButton_Click"  Grid.Column="3" Grid.Row="6" Margin="2,20,2,0" Width="80"/>
     </Grid>
 </Window>
